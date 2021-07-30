@@ -74,6 +74,11 @@ if __name__ == "__main__":
     predicted_qualities = lr.predict(test_x)
     rmse, mae, r2 = eval_metrics(test_y, predicted_qualities)
 
+    print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (alpha, l1_ratio))
+    print("  RMSE: %s" % rmse)
+    print("  MAE: %s" % mae)
+    print("  R2: %s" % r2)
+
     # Log params
     mlflow.log_param("alpha", alpha)
     mlflow.log_param("l1_ratio", l1_ratio)
@@ -84,7 +89,6 @@ if __name__ == "__main__":
     mlflow.log_metric("r2", r2)
 
     tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-    print("tracking_url_type_store: ", tracking_url_type_store)
     # Model registry does not work with file store
     if tracking_url_type_store != "file":
 
@@ -93,8 +97,8 @@ if __name__ == "__main__":
         # please refer to the doc for more information:
         # https://mlflow.org/docs/latest/model-registry.html#api-workflow
         mlflow.sklearn.log_model(
-            lr, "model", registered_model_name="ElasticnetWineModel"
+            lr, "wine_quality_model", registered_model_name="ElasticnetWineModel"
         )
     else:
-        mlflow.sklearn.log_model(lr, "model")
+        mlflow.sklearn.log_model(lr, "wine_quality_model")
 
