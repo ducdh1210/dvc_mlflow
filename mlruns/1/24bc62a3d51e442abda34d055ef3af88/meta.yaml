@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ddo/Personal/Tutorials/dvc_mlfow/mlruns/1/24bc62a3d51e442abda34d055ef3af88/artifacts
+end_time: 1627610465342
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 24bc62a3d51e442abda34d055ef3af88
+run_uuid: 24bc62a3d51e442abda34d055ef3af88
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1627610465238
+status: 3
+tags: []
+user_id: ddo
